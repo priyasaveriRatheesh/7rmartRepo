@@ -16,6 +16,8 @@ public class Listeners implements  ITestListener // ITestListener is interface,u
 	  ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); 
 	  
 	  public void onTestStart(ITestResult result)
+	  //once TC run starts, will listen ITestListener console and fetch name of TC and add to report
+
 	  { 
 	  
 	   ITestListener.super.onTestStart(result); 
@@ -87,6 +89,8 @@ public class Listeners implements  ITestListener // ITestListener is interface,u
 	  public void onFinish(ITestContext context) { 
 	  
 	   ITestListener.super.onFinish(context); 
+		  //flush mthd is used to generate report, report will get generated only if we call this flush mthd
+
 	   extent.flush();
 }
  }

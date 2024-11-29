@@ -8,9 +8,10 @@
     <classes>
       <class name="testscript.LoginTest">
         <methods>
-          <include name="initializebrowser"/>
+          <include name="initializeBrowser"/>
           <include name="quitandclose"/>
           <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
+          <include name="verifyTheUserIsAbleToLoginUsingInvalidCredentials"/>
         </methods>
       </class> <!-- testscript.LoginTest -->
     </classes>

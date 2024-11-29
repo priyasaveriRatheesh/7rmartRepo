@@ -13,14 +13,15 @@ public class Pageutilities {
 	public void selectByIndex(WebElement element,int Index) 
 		{
 			Select select =new Select(element);
-				select.selectByIndex(Index);
+			select.selectByIndex(Index);
 		}
 
 public void selectByVisibleText(WebElement element,String visibleText) 
 {
 		Select select =new Select(element);
 		select.selectByVisibleText(visibleText);;
-		
+		//we can add  methods here, and just call using object 
+	
 	}
 
 }

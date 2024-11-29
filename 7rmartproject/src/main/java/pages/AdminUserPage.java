@@ -1,12 +1,11 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
-import utilities.Pageutilities;
 
 public class AdminUserPage {
 		WebDriver driver;
@@ -20,11 +19,12 @@ public class AdminUserPage {
 		@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
 		@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
 		
-		@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-admin']")private WebElement moreinfobutton;
-		@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=10773&page_ad=1']")private WebElement updateicon;
+		@FindBy(xpath="/html/body/div[1]/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
+		//@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-admin']")private WebElement moreinfo;
+		@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=10841&page_ad=1']")private WebElement updateicon;
 		@FindBy(xpath="//input[@id='username']")private WebElement usernameupdate;
 		@FindBy(xpath="//input[@id='password']")private WebElement passwordupdate;
-		@FindBy(xpath="//select[@id='user_type']")private WebElement usertypeupdate;
+		@FindBy(xpath="//select[@id='user_type']")private WebElement usertypupdate;
 		@FindBy(xpath="//button[@name='Update']")private WebElement updatebutton;
 		@FindBy(xpath="//h5[text()=' Alert!']")private WebElement alert;
 
@@ -46,12 +46,15 @@ public class AdminUserPage {
 		
 		public void clickonmoreinfo()
          {
-        	 moreinfobutton.click();
+        	 moreinfo.click();
          }
          
         public void clickonupdateicon()
         {
-	    updateicon.click();
+	    // updateicon.click();
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",updateicon);
+	
         }
 	   public void enterupdatedusername(String updatedusernamepassing)
 	   {
@@ -63,24 +66,25 @@ public class AdminUserPage {
 		   passwordupdate.clear();
 		   passwordupdate.sendKeys(updatedpasswordpassing);
      	}
-	  public void selectvalueofusertype(String usertypeupdatepassing)
+	    public void selectupdatedusertype(int usertypeupdatepassing)
+		 // public void selectupdatedusertype(String usertypeupdatepassing)
 	   {
 		  
-		 // Select selectobj=new Select(usertypeupdate);
-		 // selectobj.selectByIndex(usertypeupdatepassing);
-		//  selectobj.selectByValue(usertypeupdatepassing);
-		 Pageutilities Pagetilitiesobj=new Pageutilities();
-	     Pagetilitiesobj.selectByValue(usertypeupdate, usertypeupdatepassing);
-		// Pagetilitiesobj.selectByValue(usertypeupdate, usertypeupdatepassing);
-		  		
-	    }
-	  
-	public void clickonupdatedetailsbutton()
+		 Select selectobj=new Select(usertypupdate);//webelement name
+		// selectobj.selectByValue(usertypeupdatepassing);
+		   selectobj.selectByIndex(3);
+		 // Pageutilities Pagetilitiesobj=new Pageutilities();
+	     //Pagetilitiesobj.selectByValue(usertypeupdate, usertypeupdatepassing);
+		// PageUtility pageutility=new PageUtility();
+		//	pageutility.selectByIndex(usertypeupdate, 1);
+		
+  	    }
+	  	public void clickonupdateDetailsButton()
 	   {
 		updatebutton.click();
 	    }
 	   public boolean isalertdisplayed() {
 	   
 		return alert.isDisplayed();
-	   }
-}
+	    }
+           } 

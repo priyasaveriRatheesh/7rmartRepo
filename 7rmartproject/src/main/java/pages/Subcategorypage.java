@@ -1,14 +1,16 @@
 package pages;
 
 import java.awt.AWTException;
+
 import org.openqa.selenium.JavascriptExecutor;
 import utilities.FileUploadUtilities;
-import utilities.Pageutilities;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import constants.Constants;
 
 public class Subcategorypage {
 	WebDriver driver;
@@ -19,14 +21,16 @@ public class Subcategorypage {
 	}
 	@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
 	@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
-	@FindBy(xpath="//button[@type='submit']") private WebElement signinbutton;
+	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
 	
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']") private WebElement moreinfobutton ;
+	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[4]/div/a") private WebElement moreinfo ;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Subcategory/add']") private WebElement newbutton;
-	@FindBy(xpath="//select[@id='cat_id']") private WebElement categoryfield;
+	@FindBy(xpath="//select[@id='cat_id']") private WebElement categoryselectdropdown;
 	@FindBy(xpath="//input[@id='subcategory']") private WebElement subcategoryfield;
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Subcategory/edit?edit=1540&page_ad=1']") private WebElement updatecategorybutton;
 	@FindBy(xpath="//input[@id='main_img']") private WebElement imageuploadbutton ;
 	@FindBy(xpath="	//button[@type='submit']") private WebElement savebutton;
+	@FindBy(xpath="//button[@name='update']") private WebElement updatebutton ;
 	@FindBy(xpath="//h5[text()=' Alert!']") private WebElement alertmessage;
 	
 	public void enterUsernameOnUsernameField(String usernamepassing) {
@@ -36,26 +40,44 @@ public class Subcategorypage {
 		loginpassword.sendKeys(passwordpassing);
 	}
 	public void clickOnSigninButton() {
-		signinbutton.click();
+		loginbutton.click();
 	}
+	
+	
 	public void clickOnMoreinfobutton() {
-		//moreinfobutton.click();
+		//moreinfo.click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",moreinfobutton);
+		js.executeScript("arguments[0].click();",moreinfo);
 	}
 	public void clickOnNewbutton() {
 		newbutton.click();
+		
 	}
-	public void selectValueOnCateforyFieldDropdown(String passingcategoryvalue) {
-		Pageutilities pageutility=new Pageutilities();
-		pageutility.selectByVisibleText(categoryfield, passingcategoryvalue);
+	public void clickonupdatecategorybutton()
+	{
+		//updatecategorybutton.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",updatecategorybutton);
+	
 	}
-	public void selectValueOnSubcateforyFieldDropdown(String passingsubcategoryvalue) {
+	public void selectaCategoryFromDropdown(String passingcategoryvalue) {
+		//Pageutilities pageutility=new Pageutilities();
+		//pageutility.selectByVisibleText(categoryfield, passingcategoryvalue);
+		//pageutility.selectByIndex(categoryfield, 1);
+		Select selectobj=new Select(categoryselectdropdown);
+		selectobj.selectByIndex(7);
+
+	}
+	public void EnteraSubcategory(String passingsubcategoryvalue) {
 		subcategoryfield.sendKeys(passingsubcategoryvalue);
 	}
 	public void fileUpload() throws AWTException {
 		FileUploadUtilities objfileuploadutilities=new FileUploadUtilities();
-	//	objfileuploadutilities.FileuploadUsingRobotclass(imageuploadbutton, Constants);
+		objfileuploadutilities.fileuploadusingSenkeys(imageuploadbutton,Constants.TOMATOIMAGE);
+
+		//objfileuploadutilities.fileuploadusingRobotclass(imageuploadbutton, Constants.TOMATOIMAGE);
+		//objfileuploadutilities.fileuploadusingRobotclass(imageuploadbutton, Constants.TOMATOIMAGE);
+			
 	}
 	public void clickOnSavebutton() {
 		savebutton.click();

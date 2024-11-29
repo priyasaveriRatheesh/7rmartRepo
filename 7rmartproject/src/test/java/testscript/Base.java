@@ -1,6 +1,8 @@
 package testscript;
 
+import java.io.FileInputStream;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,14 +12,30 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import constants.Constants;
 import utilities.Waitutilities;
 public class Base {
 			public WebDriver driver;
-		@BeforeMethod
-		@Parameters("browser")
-		public void initializeBrowser(String browser) throws Exception {
-			//driver=new ChromeDriver();
-			if(browser.equalsIgnoreCase("Chrome")) 
+			public Properties properties;
+			public FileInputStream fileinputstream;
+		    @BeforeMethod(alwaysRun=true)
+		    @Parameters("browser")
+		    public void initializeBrowser(String browser) throws  Exception
+		    //public void initializeBrowser()//no need
+	{
+			//driver=new ChromeDriver();//no need of this line
+
+			try {
+				properties = new Properties();
+				fileinputstream = new FileInputStream(Constants.CONFIG_FILE);
+				properties.load(fileinputstream);
+				
+			}
+			catch(Exception e){
+				System.out.println("Error");
+			}
+			//driver=new ChromeDriver();//no need
+		    if(browser.equalsIgnoreCase("Chrome")) 
 			{
 				driver=new ChromeDriver();
 			}
@@ -33,14 +51,20 @@ public class Base {
 			{
 			throw new Exception("Browser is incorrect");
 			}
-		driver.get("https://groceryapp.uniqassosiates.com/admin");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Waitutilities.implicitwait));
-		driver.manage().window().maximize();
+		    //driver.get("https://groceryapp.uniqassosiates.com/admin");// no need
+		    driver.get(properties.getProperty("url"));
 
-		  }
-		@AfterMethod
-		  public void quitandclose()
-		  {
+		     //implicit wait after url loads
+			 //if given 10 sec, element loads in 2 sec, but it will wait till 10, so dont use for bigger time period
+			 //common wait
+				
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Waitutilities.implicitwait));
+		    driver.manage().window().maximize();
+
+		     }
+		    @AfterMethod(alwaysRun=true)
+		   public void quitandclose()
+		    {
 			  //driver.close();
 			//  driver.quit();
 

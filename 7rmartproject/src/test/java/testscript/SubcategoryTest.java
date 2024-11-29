@@ -9,40 +9,50 @@ import org.testng.annotations.Test;
 import pages.Subcategorypage;
 import utilities.ExelUtilities;
 
-public class SubcategoryTest {
+public class SubcategoryTest extends Base {
 	@Test
 	public void createSubcategory() throws IOException, AWTException {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
-		Subcategorypage subcategorypage=new Subcategorypage(null);
-		subcategorypage.enterUsernameOnUsernameField(loginusernamevalue);
-		subcategorypage.enterPasswordOnPasswordField(loginpasswordvalue);
-		subcategorypage.clickOnSigninButton();
+		//String loginusernamevalue="admin";
+		//String loginpasswordvalue="admin";
+		
+		Subcategorypage subcategorypageobj=new Subcategorypage(driver);
+		subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
+		subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
+		subcategorypageobj.clickOnSigninButton();
 		
 		String categoryvalue=ExelUtilities.getStringData(1, 0,"SubcategoryPage");
 		String subcategoryvalue=ExelUtilities.getStringData(1, 1,"SubcategoryPage");
-		subcategorypage.selectValueOnCateforyFieldDropdown(categoryvalue);
-		subcategorypage.selectValueOnSubcateforyFieldDropdown(subcategoryvalue);
-		subcategorypage.fileUpload();
-		subcategorypage.clickOnSavebutton();
-		boolean alertdisplayed=subcategorypage.isAlertMessageDisplayed();
+		subcategorypageobj.clickOnMoreinfobutton();
+		subcategorypageobj.clickOnNewbutton();
+		subcategorypageobj.selectaCategoryFromDropdown(categoryvalue);
+		subcategorypageobj.EnteraSubcategory(subcategoryvalue);
+		//subcategorypageobj.fileUpload();//inactive when using robot class no need of this line why?
+		subcategorypageobj.clickOnSavebutton();
+		boolean alertdisplayed=subcategorypageobj.isAlertMessageDisplayed();
 		Assert.assertTrue(alertdisplayed,"Green success Alert not displayed");
 	}
 	@Test
-	public void createExistingSubcategory() throws IOException, AWTException {
+	public void updateSubcategory() throws IOException, AWTException {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
-		Subcategorypage subcategorypage=new Subcategorypage(null);
-		subcategorypage.enterUsernameOnUsernameField(loginusernamevalue);
-		subcategorypage.enterPasswordOnPasswordField(loginpasswordvalue);
-		subcategorypage.clickOnSigninButton();
+		//String loginusernamevalue="admin";
+		//String loginpasswordvalue="admin";
+		
+		Subcategorypage subcategorypageobj=new Subcategorypage(driver);
+		subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
+		subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
+		subcategorypageobj.clickOnSigninButton();
 		
 		String categoryvalue=ExelUtilities.getStringData(2, 0,"SubcategoryPage");
 		String subcategoryvalue=ExelUtilities.getStringData(2, 1,"SubcategoryPage");
-		subcategorypage.selectValueOnCateforyFieldDropdown(categoryvalue);
-		subcategorypage.selectValueOnSubcateforyFieldDropdown(subcategoryvalue);
-		subcategorypage.clickOnSavebutton();
-		boolean alertdisplayed=subcategorypage.isAlertMessageDisplayed();
+		subcategorypageobj.clickOnMoreinfobutton();
+		subcategorypageobj.clickonupdatecategorybutton();
+		subcategorypageobj.selectaCategoryFromDropdown(categoryvalue);
+		subcategorypageobj.EnteraSubcategory(subcategoryvalue);
+		subcategorypageobj.clickOnSavebutton();
+		boolean alertdisplayed=subcategorypageobj.isAlertMessageDisplayed();
 		Assert.assertTrue(alertdisplayed,"Red error Alert not displayed");
 	}
 }

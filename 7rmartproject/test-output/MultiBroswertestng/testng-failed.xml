@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [MultiBroswertestng]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="genarateReport.Listeners"/>
+  </listeners>
+  <test thread-count="2" parallel="tests" name="FireTest(failed)">
+    <parameter name="browser" value="Firefox"/>
+    <classes>
+      <class name="testscript.LoginTest">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="quitandclose"/>
+          <include name="verifyTheUserIsAbleToLoginUsingInvalidCredentials"/>
+        </methods>
+      </class> <!-- testscript.LoginTest -->
+    </classes>
+  </test> <!-- FireTest(failed) -->
+</suite> <!-- Failed suite [MultiBroswertestng] -->
