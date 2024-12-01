@@ -80,6 +80,10 @@ public class ManageContactPage {
 	deliverycharge.clear();
 	deliverycharge.sendKeys(deliverychargepassing);
      }
+    public boolean isupdateButtonIsDisplayed()
+    {
+    	return updatebutton.isDisplayed();
+    }
     public void  clickOnUpdateButton()
     {
 	//updatebutton.click();

@@ -4,16 +4,28 @@
   <listeners>
     <listener class-name="genarateReport.Listeners"/>
   </listeners>
-  <test thread-count="2" parallel="tests" name="FireTest(failed)">
-    <parameter name="browser" value="Firefox"/>
+  <test thread-count="2" parallel="tests" name="chromeTest(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="testscript.LoginTest">
         <methods>
           <include name="initializeBrowser"/>
           <include name="quitandclose"/>
-          <include name="verifyTheUserIsAbleToLoginUsingInvalidCredentials"/>
+          <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
         </methods>
       </class> <!-- testscript.LoginTest -->
     </classes>
-  </test> <!-- FireTest(failed) -->
+  </test> <!-- chromeTest(failed) -->
+  <test thread-count="2" parallel="tests" name="EdgeTest(failed)">
+    <parameter name="browser" value="Edge"/>
+    <classes>
+      <class name="testscript.LoginTest">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="quitandclose"/>
+          <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
+        </methods>
+      </class> <!-- testscript.LoginTest -->
+    </classes>
+  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [MultiBroswertestng] -->

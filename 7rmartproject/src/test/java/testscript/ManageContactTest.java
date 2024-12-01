@@ -48,26 +48,26 @@ public class ManageContactTest extends Base{
 	  Assert.assertTrue(alertdisplayed,"alert is not displayed");
 	  
 	   }
-	   }
-       /*@Test
-	   public void VerifyiftheUpdateButtonIsPresent()
+	   
+      @Test
+	   public void VerifyiftheUpdateButtonIsPresent() throws IOException
 	   {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
-		Loginpage loginpageobj=new Loginpage(driver);
-		loginpageobj.enterUsernameOnUserNameField(loginusernamevalue);
-		loginpageobj.enterPasswordOnpasswordField(loginpasswordvalue);
-		loginpageobj.clickOnLoginbutton();
 		
-		ManageContactPage managecontactpage=new ManageContactPage(driver);
-		managecontactpage.clickonmoreinfobutton();
-		managecontactpage.clickOnUpdateButton();
-		//ManageContactPage.
-		//boolean updatebuttondisplayed=ManageContactPage.
-		//Assert.assertTrue(updatebuttondisplayed,"Update Button not displayed");
+		ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
+		ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);
+		ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);
+		ManageContactPageobj.clickOnLoginbutton();
+		
+		ManageContactPageobj.clickonmoreinfobutton();
+	    ManageContactPageobj.clickonactionbutton();
+	     ManageContactPageobj.clickOnUpdateButton();
+		boolean updatebuttondisplayed=ManageContactPageobj.isupdateButtonIsDisplayed();
+		Assert.assertTrue(updatebuttondisplayed,"Update Button not displayed");
 	    }
-         }
+         
+}
 
-*/
 	
 

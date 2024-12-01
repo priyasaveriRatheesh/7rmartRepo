@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import constants.Constants;
-public class ExelUtilities//no need if extend?
+public class ExelUtilities//no need of extend?
 {
 	static FileInputStream f;
 	static XSSFWorkbook wb;

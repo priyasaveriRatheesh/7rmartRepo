@@ -69,6 +69,11 @@ public void clickonupdateIcon()
 {
 	updatebutton.click();
 }
+public boolean isupdatebuttonIsDisplayed()
+{
+	return updatebutton.isDisplayed();
+	
+}
 public boolean isalertdisplayed()
 {
 	return alert.isDisplayed();

@@ -8,7 +8,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import utilities.ExtendReportUtility;
 
-public class Listeners implements  ITestListener // ITestListener is interface,useed for whisch testcase is fail pass or skip 
+public class Listeners implements  ITestListener // ITestListener is interface,used for which test case is fail pass or skip 
  {
 	ExtentTest test; 
  	ExtentReports extent = ExtendReportUtility.createExtentReports(); //utility class method calling
@@ -80,7 +80,7 @@ public class Listeners implements  ITestListener // ITestListener is interface,u
 	   ITestListener.super.onTestFailedWithTimeout(result); 
 	  } 
 	  
-	  public void onStart(ITestContext context)//tsest case star cheyumbo t--method fetch-add to extend report
+	  public void onStart(ITestContext context)//test case star cheyumbo method fetch-add to extend report
 	  { 
 	  
 	   ITestListener.super.onStart(context); 

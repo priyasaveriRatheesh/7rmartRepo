@@ -30,13 +30,16 @@ public class ManageFooterTest  extends Base{
 	    ManageFooterPageobj.enteraddressOnAddressfield(newadresss);
 	    ManageFooterPageobj.enterEmailOnEmailField(newemail);
 	    ManageFooterPageobj.enterThePhoneNumber(newphonenumber);
+	     // boolean updatedisplayed=ManageFooterPageobj.isupdatebuttonIsDisplayed();
+		//  Assert.assertTrue(updatedisplayed," Alert not displayed");
+
 	    ManageFooterPageobj.clickonupdateIcon();
 	    boolean alertdisplayed=ManageFooterPageobj.isalertdisplayed();
 		Assert.assertTrue(alertdisplayed,"Alert not displayed");
-	
+
 	}
 	@Test
-	public void verifytheUpdateButton() throws IOException
+	public void verifytheUpdateButton() throws IOException// doubt?
 	{
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 		String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
@@ -47,11 +50,10 @@ public class ManageFooterTest  extends Base{
 		ManageFooterPageobj.clickOnLoginbutton();
 	    ManageFooterPageobj.clickonmoreinfobutton();
 	    ManageFooterPageobj.clickonactionbutton();
+	    boolean updatedisplayed=ManageFooterPageobj.isupdatebuttonIsDisplayed();
+		Assert.assertTrue(updatedisplayed," Alert not displayed");
 
-	    ManageFooterPageobj.clickonupdateIcon();
-		boolean alertdisplayed=ManageFooterPageobj.isalertdisplayed();
-		Assert.assertTrue(alertdisplayed," Alert not displayed");
-			
+	   	
 	}
 
 }
