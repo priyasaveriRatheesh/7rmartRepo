@@ -1,5 +1,6 @@
 package testscript;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
@@ -53,12 +54,13 @@ public class LoginTest extends Base {//here claass extending to base class  to l
 		boolean alertvariable=objofloginpage.isalertdisplayed();
 		Assert.assertTrue(alertvariable,"Alert not displayed");	
 	}
-@Test
-	public void verifyTheUserIsAbleToLoginUsingInvalidCredentials() throws IOException {
+@Test(dataProvider="LoginProvider")
+
+	public void verifyTheUserIsAbleToLoginUsingInvalidCredentials(String usernamevalue,String passwordvalue) throws IOException {
 		//String usernamevalue="dmin";
 		//String passwordvalue="dmin";
-	    String usernamevalue=ExelUtilities.getStringData(4, 0,"Loginpage");
-	    String passwordvalue=ExelUtilities.getStringData(4, 1,"Loginpage");
+	   // String usernamevalue=ExelUtilities.getStringData(4, 0,"Loginpage");
+	    //String passwordvalue=ExelUtilities.getStringData(4, 1,"Loginpage");
 	    Loginpage objofloginpage=new Loginpage(driver);
 		objofloginpage.enterUsernameOnUserNameField(usernamevalue);
 		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
@@ -66,5 +68,10 @@ public class LoginTest extends Base {//here claass extending to base class  to l
 		boolean alertvariable=objofloginpage.isalertdisplayed();
 		Assert.assertTrue(alertvariable,"Alert not displayed");	
 	}
+@DataProvider(name = "LoginProvider")
+public Object[][] getDataFromTestData() throws IOException 
+{
+	return new Object[][] { { ExelUtilities.getStringData(4, 0, "LoginPage"), ExelUtilities.getStringData(4, 1, "LoginPage") }};
+}
 }
 	

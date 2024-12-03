@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilities.Pageutilities;
+import utilities.PageUtilities;
 
     public class ManageProductPage {
 	WebDriver driver;
@@ -80,7 +80,7 @@ import utilities.Pageutilities;
 	
 	public void SelectGroup(int grouppassing)
 	{
-		Pageutilities Pageutilitiesobj =new Pageutilities();
+		PageUtilities Pageutilitiesobj =new PageUtilities();
 		Pageutilitiesobj.selectByIndex(group, grouppassing);
 	}
 	public void ClickOnPriceTypeRadioButton()
@@ -90,7 +90,7 @@ import utilities.Pageutilities;
 	
 	public void minimumpiecedropdown(int piecepassing)
 	{
-		Pageutilities Pageutilitiesobj =new Pageutilities();
+		PageUtilities Pageutilitiesobj =new PageUtilities();
 		Pageutilitiesobj.selectByIndex(piecetype, piecepassing);
 		}
 	
