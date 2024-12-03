@@ -19,12 +19,11 @@ import utilities.ScreenShotUtility;
 import utilities.Waitutilities;
 public class Base {
 	
-	public  ScreenShotUtility scrshot;
-
+	        public  ScreenShotUtility scrshot;
 			public WebDriver driver;
 			public Properties properties;
 			public FileInputStream fileinputstream;
-		    @BeforeMethod(alwaysRun=true)
+		    @BeforeMethod(alwaysRun=true)//for grouping
 		    @Parameters("browser")
 		    public void initializeBrowser(String browser) throws  Exception
 		    //public void initializeBrowser()//no need
@@ -74,8 +73,8 @@ public class Base {
 			  //driver.close();
 			//  driver.quit();
 
-			}
-*/
+			}*/
+
 		    public void browserQuit(ITestResult iTestResult) throws IOException {
 				if (iTestResult.getStatus() == ITestResult.FAILURE) {
 					scrshot = new ScreenShotUtility();
@@ -83,9 +82,8 @@ public class Base {
 				}
 
 				driver.quit();
-			}
-		    
-		    		
+			} 
+	   		
 }
 
 

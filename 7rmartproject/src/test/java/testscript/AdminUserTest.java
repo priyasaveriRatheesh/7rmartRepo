@@ -10,19 +10,19 @@ import utilities.ExelUtilities;
 
 public class AdminUserTest extends Base{
 	
-@Test                               //using string its not working? and usertypfield 
+@Test                               
 public void UpdateTheFields()throws IOException
 {
 		//String loginusername="admin";//wa use use excel insted of hard code the values
 		//String loginpassword="admin";
 		String loginusername=ExelUtilities.getStringData(1, 0, "Loginpage");//row,column starts with zero
 		String loginpassword=ExelUtilities.getStringData(1, 1, "Loginpage");
-				
 		//String usernameupdate="user123";
 	    //String passwordupdate="admin12345";
 		//String usertypeupdate="Delivery Boy";
-		int usertypeupdate=4;
+		 //using string its not working? and usertypfield
 		
+		int usertypeupdate=4;
 		String usernameupdate=ExelUtilities.getStringData(1, 0, "AdminUserPage");
 		String passwordupdate=ExelUtilities.getStringData(1, 1, "AdminUserPage");
 		//String usertypeupdate=ExelUtilities.getStringData(1, 2, "AdminUserPage");
@@ -39,7 +39,7 @@ public void UpdateTheFields()throws IOException
 		objAdminUserPage.selectupdatedusertype(usertypeupdate);
 		objAdminUserPage.clickonupdateDetailsButton();
 	    boolean alertvariable=objAdminUserPage.isalertdisplayed();
-	    Assert.assertTrue(alertvariable, "Alert not displayednewUsertpe");
+	    Assert.assertTrue(alertvariable, "Alert not displayed");
 }
 	
 }

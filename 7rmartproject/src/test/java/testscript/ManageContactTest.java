@@ -12,13 +12,13 @@ import utilities.ExelUtilities;
 public class ManageContactTest extends Base{
 
 	@Test
-	public void updateTheContactDetails() throws IOException 
+	public void VerifyIfTheUserCanupdateTheContactDetails() throws IOException 
 	{
 		
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 		String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
-		Loginpage loginpage=new Loginpage(driver);
-		/*loginpage.enterUsernameOnUserNameField(loginusernamevalue);/////doubt?
+		/*Loginpage loginpage=new Loginpage(driver);
+		loginpage.enterUsernameOnUserNameField(loginusernamevalue);/////doubt?
 		loginpage.enterPasswordOnpasswordField(loginpasswordvalue);
 		loginpage.clickOnLoginbutton();*/
 		
@@ -31,8 +31,8 @@ public class ManageContactTest extends Base{
 		
 		
 		ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
-		ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);//no need from this
-		ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);//this
+		ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);//no need from this?
+		ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);//this?
 		ManageContactPageobj.clickOnLoginbutton();//
 		ManageContactPageobj.clickonmoreinfobutton();
 	    ManageContactPageobj.clickonactionbutton();
@@ -50,7 +50,7 @@ public class ManageContactTest extends Base{
 	   }
 	   
       @Test
-	   public void VerifyiftheUpdateButtonIsPresent() throws IOException
+	   public void VerifyiftheUpdateButtonIsPresentInManageContCtPage() throws IOException
 	   {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");

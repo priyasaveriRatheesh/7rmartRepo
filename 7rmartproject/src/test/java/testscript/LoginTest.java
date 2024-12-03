@@ -14,8 +14,8 @@ public class LoginTest extends Base {//here claass extending to base class  to l
     //@Test
 	public void verifyTheUserisAbletologinusingvalidcredentials() throws IOException //can create 4 ethods with the credentials combination
 	{
-	//String loginusernamevalue="admin";
-	//String loginpasswordvalue="admin";
+	   //String loginusernamevalue="admin";
+	   //String loginpasswordvalue="admin";
 	   String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 	   String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
 	   Loginpage objofloginpage=new Loginpage(driver);//crating another class object and passing driver
@@ -26,7 +26,7 @@ public class LoginTest extends Base {//here claass extending to base class  to l
 	   Assert.assertTrue(homepageloaded,"Homepage is not loaded with valid credentials");
 		
 }
-	@Test
+	@Test(description="verifyIfTheUserIsAbleToLoginWithValidUsernameAndInvalidPassword")//purpose
 	public void verifyIfTheUserIsAbleToLoginWithValidUsernameAndInvalidPassword() throws IOException
 	{
 	//String usernamevalue="admin";
@@ -41,7 +41,7 @@ public class LoginTest extends Base {//here claass extending to base class  to l
 	Assert.assertTrue(alertvariable,"Alert not displayed");	
 			}
 
- @Test
+ @Test(groups= {"regression"})
 	public void verifyTheUserIsAbleToLoginUsingInvalidUsernameAndValidPassword() throws IOException {
 		//String usernamevalue="dmin";
 		//String passwordvalue="admin";

@@ -11,7 +11,7 @@ import utilities.ExelUtilities;
 
 public class ManagenewsTest extends Base{
 	@Test
-	public void deletenews() throws IOException
+	public void VerifyIfTheUserIsAbleToDeleteNewsdeletenews() throws IOException
 	{
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 		String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
@@ -27,11 +27,10 @@ public class ManagenewsTest extends Base{
 		Assert.assertTrue(alertdisplayed,"alert not displayed");
 	}
 		@Test
-		public void createnews() throws IOException
+		public void VerifyIfTheUserCanCreateNews() throws IOException
 		{
 			//String loginusername="admin";
 			//String loginpassword="admin";
-			
 			String loginusername=ExelUtilities.getStringData(1,0,"Loginpage");
 			String loginpassword=ExelUtilities.getStringData(1,1,"Loginpage");
 			

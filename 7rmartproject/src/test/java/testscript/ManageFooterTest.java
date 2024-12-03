@@ -10,7 +10,7 @@ import utilities.ExelUtilities;
 
 public class ManageFooterTest  extends Base{
 	@Test
-	public void updateTheFooterFields() throws IOException
+	public void VerifyIfTheUserCanupdateTheFooterFields() throws IOException
 	{
 		
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
@@ -30,8 +30,8 @@ public class ManageFooterTest  extends Base{
 	    ManageFooterPageobj.enteraddressOnAddressfield(newadresss);
 	    ManageFooterPageobj.enterEmailOnEmailField(newemail);
 	    ManageFooterPageobj.enterThePhoneNumber(newphonenumber);
-	     // boolean updatedisplayed=ManageFooterPageobj.isupdatebuttonIsDisplayed();
-		//  Assert.assertTrue(updatedisplayed," Alert not displayed");
+	    //boolean updatedisplayed=ManageFooterPageobj.isupdatebuttonIsDisplayed();
+		//Assert.assertTrue(updatedisplayed," Alert not displayed");
 
 	    ManageFooterPageobj.clickonupdateIcon();
 	    boolean alertdisplayed=ManageFooterPageobj.isalertdisplayed();
@@ -39,7 +39,7 @@ public class ManageFooterTest  extends Base{
 
 	}
 	@Test
-	public void verifytheUpdateButton() throws IOException// doubt?
+	public void verifytheUpdateButtonIsPresentInTheFooterPage() throws IOException// doubt?
 	{
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 		String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");

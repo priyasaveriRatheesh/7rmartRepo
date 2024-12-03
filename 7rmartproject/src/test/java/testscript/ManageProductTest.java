@@ -11,11 +11,10 @@ import utilities.ExelUtilities;
 
 public class ManageProductTest extends Base{
 		@Test
-	public void createNewProduct() throws IOException, AWTException 
+	public void VerifyIfTheUserIsAbleToCreateNewProduct() throws IOException, AWTException 
 		{
 			String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 			String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
-					
 			ManageProductPage ManageProductpageobj=new ManageProductPage(driver);
 			ManageProductpageobj.enterUsernameOnUsernameField(loginusernamevalue);
 			ManageProductpageobj.enterPasswordOnPasswordField(loginpasswordvalue);
