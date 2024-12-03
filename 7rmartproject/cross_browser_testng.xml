@@ -7,7 +7,6 @@
   <test name="ChromeTest">
   <parameter name="browser" value="chrome"></parameter>
   <classes>
-    
     <class name="testscript.LoginTest">
       <methods> 
       <include name="verifyTheUserisAbletologinusingvalidcredentials"></include>

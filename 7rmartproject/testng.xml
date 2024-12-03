@@ -13,7 +13,6 @@
            </methods>
       </class>
      </classes>
-  <!--/test> <!- -Test -->
-  
-  </test> 
+  <!--/test DOUBT> <!- -Test -->
+    </test> 
 </suite> <!-- Suite -->

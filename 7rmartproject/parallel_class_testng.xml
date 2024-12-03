@@ -10,6 +10,7 @@
     <class name="testscript.LoginTest">
       <methods> 
       <include name="verifyTheUserisAbletologinusingvalidcredentials"></include>
+      <include name="verifyTheUserIsAbleToLoginUsingValidUsernameAndIncorrectPassword"> </include>
       </methods>
       </class>
    <class name="testscript.AdminUserTest">

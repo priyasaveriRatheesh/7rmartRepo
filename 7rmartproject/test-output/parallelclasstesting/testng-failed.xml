@@ -7,20 +7,20 @@
   </listeners>
   <test thread-count="2" parallel="classes" name="test(failed)">
     <classes>
-      <class name="testscript.LoginTest">
-        <methods>
-          <include name="initializeBrowser"/>
-          <include name="quitandclose"/>
-          <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
-        </methods>
-      </class> <!-- testscript.LoginTest -->
       <class name="testscript.AdminUserTest">
         <methods>
           <include name="initializeBrowser"/>
           <include name="UpdateTheFields"/>
-          <include name="quitandclose"/>
+          <include name="browserQuit"/>
         </methods>
       </class> <!-- testscript.AdminUserTest -->
+      <class name="testscript.LoginTest">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testscript.LoginTest -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [parallelclasstesting] -->
