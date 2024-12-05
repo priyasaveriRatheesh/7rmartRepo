@@ -7,10 +7,7 @@
 </listeners>
   <test thread-count="5" name="Test"><!-- -->
     <classes>
-           <class name="testscript.LoginTest">
-      <methods>
-      <include name="verifyTheUserisAbletologinusingvalidcredentials"></include><!-- screenshot-->
-           </methods>
+      <class name="testscript.SubcategoryTest">
       </class>
      </classes>
   <!--/test DOUBT> <!- -Test -->

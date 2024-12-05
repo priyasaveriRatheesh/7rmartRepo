@@ -7,13 +7,6 @@
   </listeners>
   <test thread-count="2" parallel="classes" name="test(failed)">
     <classes>
-      <class name="testscript.AdminUserTest">
-        <methods>
-          <include name="initializeBrowser"/>
-          <include name="UpdateTheFields"/>
-          <include name="browserQuit"/>
-        </methods>
-      </class> <!-- testscript.AdminUserTest -->
       <class name="testscript.LoginTest">
         <methods>
           <include name="initializeBrowser"/>
@@ -21,6 +14,13 @@
           <include name="browserQuit"/>
         </methods>
       </class> <!-- testscript.LoginTest -->
+      <class name="testscript.AdminUserTest">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="UpdateTheFields"/>
+          <include name="browserQuit"/>
+        </methods>
+      </class> <!-- testscript.AdminUserTest -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [parallelclasstesting] -->

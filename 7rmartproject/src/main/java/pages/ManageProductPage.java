@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import utilities.PageUtilities;
+import utilities.Waitutilities;
 
     public class ManageProductPage {
 	WebDriver driver;
@@ -15,7 +17,6 @@ import utilities.PageUtilities;
 	@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
 	@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
 	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
-	
 	
 	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-product']") private WebElement moreinfobutton;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Product/add']") private WebElement newicon;
@@ -30,19 +31,11 @@ import utilities.PageUtilities;
 	@FindBy(xpath="//input[@id='p_mrp']") private WebElement mrp;
 	@FindBy(xpath="//input[@id='p_stock']") private WebElement stock;
 	@FindBy(xpath="//input[@id='p_pp']") private WebElement purchase ;
-	//@FindBy(xpath="//button[text()='Save']") private WebElement savebutton;
-	//@FindBy(xpath="//input[@name='unlimitp[]']") private WebElement unlimitedstockceckbox ;
 	@FindBy(xpath="//*[@id=\"form\"]/div/div[9]/div/div/div/div[3]/div[2]") private WebElement description ;
-	//@FindBy(xpath="//*[@id=\"form\"]/div/div[10]/div[1]/label[3]/input") private WebElement stockradioButton ;
-	//@FindBy(xpath="//input[@id='main_img']") private WebElement imageupload ;
-	//@FindBy(xpath="//body[@class='sidebar-mini layout-fixed sidebar-collapse']")private WebElement imageupload ;
-	//@FindBy(xpath="//input[@id='main_imgs']") private WebElement subimageupload;
-	//@FindBy(xpath="//input[@name='featured' and @value='yes']") private WebElement featuredradio; 
-	//@FindBy(xpath="//input[@name='unlimitw[]']") private WebElement combopackradio; 
-    @FindBy(xpath="//button[@type='submit']") private WebElement savebutton ;
+	@FindBy(xpath="(//input[@name='stock'])[2]") private WebElement stockradioButton ;
+	@FindBy(xpath="//button[@type='submit']") private WebElement savebutton ;
 	@FindBy(xpath="//h5[text()=' Alert!']") private WebElement alertmessage;
 
-	
 	
 	public void enterUsernameOnUsernameField(String usernamepassing) {
 		loginusername.sendKeys(usernamepassing);
@@ -53,9 +46,7 @@ import utilities.PageUtilities;
 	public void clickOnLoginButton() {
 		loginbutton.click();
 	}
-	
-	
-	
+			
 	public void clickOnMoreinfoButton() {
 		moreinfobutton.click();//both are  working
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -85,7 +76,10 @@ import utilities.PageUtilities;
 	}
 	public void ClickOnPriceTypeRadioButton()
 	{
-		pricetyperadiobutton.click();
+		//pricetyperadiobutton.click();
+		PageUtilities pageutilities=new PageUtilities();
+		pageutilities.javaSriptClick(driver, pricetyperadiobutton);
+		
 	}
 	
 	public void minimumpiecedropdown(int piecepassing)
@@ -115,50 +109,25 @@ import utilities.PageUtilities;
 	{
 		purchase.sendKeys(pppassing);
 	}
-	/*public void selectTheCheckboxyes()
-	{
-		unlimitedstockceckbox.click();
-	}*/
 	public void addDescription(String descrptonvalpassing)
 	{
 		description.sendKeys(descrptonvalpassing);
 	}
-	/*public void clickOnStockRadioButton(String buttonpassing)
+	public void clickOnStockRadioButton(String buttonpassing)
 	{
-		stockradioButton.click();
+		//stockradioButton.click();
+		Waitutilities obj=new Waitutilities();
+		//obj.waitForElement(driver, stockradioButton);
+		obj.waitForElementToBeClickable(driver,stockradioButton );
+		PageUtilities pageutilities=new PageUtilities();
+		pageutilities.javaSriptClick(driver, stockradioButton);
+		
 	}  
-	
-	public void ChecktheimageUpload() throws AWTException
-	{
-		 FileUploadUtilities objfileuploadutilities=new FileUploadUtilities();
-		 //objfileuploadutilities.fileuploadusingSenkeys(imageupload, Constants.TOMATOIMAGE);
-		//FileUploadUtilities.fileuploadusingSenkeys(imageupload, Constants.TOMATOIMAGE);//why error?
-		objfileuploadutilities.fileuploadusingRobotclass(imageupload,Constants.TOMATOIMAGE);
-					
-	}
-	
-	public void subimageUpload() throws AWTException
-	{
-		
-		//FileUploadUtilities fileuploadutilitiesobj=new FileUploadUtilities();
-		//fileuploadutilitiesobj.fileuploadusingRobotclass(subimageupload, Constants.SALTIMAGE);
-		//fileuploadutilitiesobj.fileuploadusingSenkeys(subimageupload, Constants.SALTIMAGE);
-
-	}
-	
-	public void selectFeaturedRadiobutton() {
-		//featuredradio.click();
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",featuredradio);
-		
-	}
-	
-	public void selectcombopackradiobutton()
-	{
+		public void clickOnSavebutton() {
+		Waitutilities waitutiliies=new Waitutilities();
+		waitutiliies.waitForElementToBeClickable(driver, savebutton);
 	   
-		combopackradio.click();
-	}*/
-	public void clickOnSavebutton() {
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",savebutton);
 		

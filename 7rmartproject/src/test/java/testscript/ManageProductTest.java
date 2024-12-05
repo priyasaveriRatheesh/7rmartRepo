@@ -43,13 +43,8 @@ public class ManageProductTest extends Base{
 			ManageProductpageobj.enterTheMrpValue(mrpvalue);
 			ManageProductpageobj.enterStock(stockvalue);
 			ManageProductpageobj.enterthePurchasePrice(purchasevalue);
-			//ManageProductpageobj.selectTheCheckboxyes();
 			ManageProductpageobj.addDescription(descptionvalue);
-			//ManageProductpageobj.clickOnStockRadioButton(stockvalue);
-			//ManageProductpageobj.ChecktheimageUpload();
-			//ManageProductpageobj.subimageUpload();
-			//ManageProductpageobj.selectFeaturedRadiobutton();
-			//ManageProductpageobj.selectcombopackradiobutton();
+			ManageProductpageobj.clickOnStockRadioButton(stockvalue);
 			ManageProductpageobj.clickOnSavebutton();
 			boolean alertdisplayed=ManageProductpageobj.isAlertMessageDisplayed();
 			Assert.assertTrue(alertdisplayed,"Alert not displayed");

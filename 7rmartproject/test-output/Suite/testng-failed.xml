@@ -10,7 +10,7 @@
       <class name="testscript.ManageContactTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="VerifyiftheUpdateButtonIsPresent"/>
+          <include name="VerifyiftheUpdateButtonIsPresentInManageContCtPage"/>
           <include name="browserQuit"/>
         </methods>
       </class> <!-- testscript.ManageContactTest -->

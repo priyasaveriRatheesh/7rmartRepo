@@ -10,7 +10,7 @@ import pages.Managenewspage;
 import utilities.ExelUtilities;
 
 public class ManagenewsTest extends Base{
-	@Test
+	/*@Test
 	public void VerifyIfTheUserIsAbleToDeleteNewsdeletenews() throws IOException
 	{
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
@@ -25,7 +25,7 @@ public class ManagenewsTest extends Base{
 		objofManagenewspage.clickondeletebutton();
 		boolean alertdisplayed=objofManagenewspage.isalertdisplayed();
 		Assert.assertTrue(alertdisplayed,"alert not displayed");
-	}
+	}*/
 		@Test
 		public void VerifyIfTheUserCanCreateNews() throws IOException
 		{

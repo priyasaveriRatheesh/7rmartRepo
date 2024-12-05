@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="classes" name="Failed suite [parallelclasstesting]" guice-stage="DEVELOPMENT">
-  <parameter name="browser" value="Chrome"/>
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="chrome"/>
   <listeners>
     <listener class-name="genarateReport.Listeners"/>
   </listeners>
-  <test thread-count="2" parallel="classes" name="test(failed)">
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testscript.AdminUserTest">
+      <class name="testscript.ManageContactTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="UpdateTheFields"/>
+          <include name="VerifyiftheUpdateButtonIsPresentInManageContCtPage"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- testscript.AdminUserTest -->
-      <class name="testscript.LoginTest">
-        <methods>
-          <include name="initializeBrowser"/>
-          <include name="verifyTheUserisAbletologinusingvalidcredentials"/>
-          <include name="browserQuit"/>
-        </methods>
-      </class> <!-- testscript.LoginTest -->
+      </class> <!-- testscript.ManageContactTest -->
     </classes>
-  </test> <!-- test(failed) -->
-</suite> <!-- Failed suite [parallelclasstesting] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

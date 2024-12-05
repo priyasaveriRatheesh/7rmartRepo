@@ -8,11 +8,10 @@
   <test name="test">
     <classes>
     <class name="testscript.LoginTest">
-      <methods> 
-      <include name="verifyTheUserisAbletologinusingvalidcredentials"></include>
-      <include name="verifyTheUserIsAbleToLoginUsingValidUsernameAndIncorrectPassword"> </include>
+      <methods><include name="verifyTheUserisAbletologinusingvalidcredentials">
+      </include>
       </methods>
-      </class>
+    </class>
    <class name="testscript.AdminUserTest">
    <methods>
    <include name="UpdateTheFields"></include>

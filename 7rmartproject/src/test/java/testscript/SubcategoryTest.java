@@ -14,31 +14,26 @@ public class SubcategoryTest extends Base {
 	public void verifyIfTheUserIsAbleToCreateANewSubcategory() throws IOException, AWTException {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
-		//String loginusernamevalue="admin";
-		//String loginpasswordvalue="admin";
 		Subcategorypage subcategorypageobj=new Subcategorypage(driver);
 		subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
 		subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
 		subcategorypageobj.clickOnSigninButton();
 		
-		String categoryvalue=ExelUtilities.getStringData(1, 0,"SubcategoryPage");
-		String subcategoryvalue=ExelUtilities.getStringData(1, 1,"SubcategoryPage");
+		String categoryvalue=ExelUtilities.getStringData(1,0,"SubcategoryPage");
+		String subcategoryvalue=ExelUtilities.getStringData(1,1,"SubcategoryPage");
 		subcategorypageobj.clickOnMoreinfobutton();
 		subcategorypageobj.clickOnNewbutton();
-		//subcategorypageobj.selectaCategoryFromDropdown(categoryvalue);
-		//subcategorypageobj.selectaCategoryFromDropdown();
+		subcategorypageobj.selectValueOnCateforyFieldDropdown();
 		subcategorypageobj.EnteraSubcategory(subcategoryvalue);
-		//subcategorypageobj.fileUpload();//inactive when using robot class no need of this line why?
+		//subcategorypageobj.imageUpload();
 		subcategorypageobj.clickOnSavebutton();
 		boolean alertdisplayed=subcategorypageobj.isAlertMessageDisplayed();
 		Assert.assertTrue(alertdisplayed,"Alert not displayed");
 	}
 	@Test
-	public void VerifyIfUserIsNotAbleToUpdateTheExistingSubcategory() throws IOException, AWTException {
+	public void VerifyIfUserIsAbleToUpdateTheExistingSubcategory() throws IOException, AWTException {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
-		//String loginusernamevalue="admin";
-		//String loginpasswordvalue="admin";
 		Subcategorypage subcategorypageobj=new Subcategorypage(driver);
 		subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
 		subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
@@ -48,13 +43,10 @@ public class SubcategoryTest extends Base {
 		String subcategoryvalue=ExelUtilities.getStringData(2, 1,"SubcategoryPage");
 		subcategorypageobj.clickOnMoreinfobutton();
 		subcategorypageobj.clickOnNewbutton();
-		//subcategorypageobj.clickonupdatecategorybutton();
-		subcategorypageobj.selectaCategoryFromDropdown(categoryvalue);
+		subcategorypageobj.selectValueOnCateforyFieldDropdown();
 		subcategorypageobj.EnteraSubcategory(subcategoryvalue);
 		subcategorypageobj.clickOnSavebutton();
 		boolean alertdisplayed=subcategorypageobj.isAlertMessageDisplayed();
 		Assert.assertTrue(alertdisplayed,"Alert not displayed");
 	}
 }
-
-

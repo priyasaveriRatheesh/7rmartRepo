@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import utilities.PageUtilities;
+import utilities.Waitutilities;
 
 public class AdminUserPage {
 		WebDriver driver;
@@ -20,8 +21,8 @@ public class AdminUserPage {
 		@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
 		
 		@FindBy(xpath="/html/body/div[1]/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
-		//@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-admin']")private WebElement moreinfo;
-		@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=10841&page_ad=1']")private WebElement updateicon;
+		@FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[17]/td[5]/a[2]")private WebElement updateicon;
+
 		@FindBy(xpath="//input[@id='username']")private WebElement usernameupdate;
 		@FindBy(xpath="//input[@id='password']")private WebElement passwordupdate;
 		@FindBy(xpath="//select[@id='user_type']")private WebElement usertypupdate;
@@ -46,13 +47,18 @@ public class AdminUserPage {
 		
 		public void clickonmoreinfo()
          {
-        	 moreinfo.click();
+        	// moreinfo.click();
+        	 JavascriptExecutor js=(JavascriptExecutor)driver;
+        	 js.executeScript("arguments[0].click();",moreinfo);
+        	 
          }
-         
         public void clickonupdateicon()
         {
-	    // updateicon.click();
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
+        	Waitutilities obj=new Waitutilities();
+    		obj.waitForElementToBeClickable(driver, updateicon);
+    		
+	     //updateicon.click();
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();",updateicon);
 	
         }
@@ -66,17 +72,11 @@ public class AdminUserPage {
 		   passwordupdate.clear();
 		   passwordupdate.sendKeys(updatedpasswordpassing);
      	}
-	    public void selectupdatedusertype(int usertypeupdatepassing)
-		 // public void selectupdatedusertype(String usertypeupdatepassing)
+	    public void selectupdatedusertype()
 	   {
 		  
-		 Select selectobj=new Select(usertypupdate);//webelement name
-		// selectobj.selectByValue(usertypeupdatepassing);
-		   selectobj.selectByIndex(3);
-		 // Pageutilities Pagetilitiesobj=new Pageutilities();
-	     //Pagetilitiesobj.selectByValue(usertypeupdate, usertypeupdatepassing);
-		// PageUtility pageutility=new PageUtility();
-		//	pageutility.selectByIndex(usertypeupdate, 1);
+		 PageUtilities pageutility=new PageUtilities();
+		 pageutility.selectByIndex(usertypupdate, 1);
 		
   	    }
 	  	public void clickonupdateDetailsButton()
