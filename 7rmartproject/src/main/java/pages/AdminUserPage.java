@@ -16,13 +16,13 @@ public class AdminUserPage {
 	    PageFactory.initElements(driver,this);
 	
 		}
-		@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
+		/*@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
 		@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
 		@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
-		
-		@FindBy(xpath="/html/body/div[1]/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
-		@FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[17]/td[5]/a[2]")private WebElement updateicon;
-
+		*/
+		//@FindBy(xpath="/html/body/div[1]/div[1]/section/div/div/div[1]/div/a")private WebElement moreinfo;
+		//@FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[17]/td[5]/a[2]")private WebElement updateicon;
+		@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=11005&page_ad=1']")private WebElement updateicon;
 		@FindBy(xpath="//input[@id='username']")private WebElement usernameupdate;
 		@FindBy(xpath="//input[@id='password']")private WebElement passwordupdate;
 		@FindBy(xpath="//select[@id='user_type']")private WebElement usertypupdate;
@@ -30,7 +30,7 @@ public class AdminUserPage {
 		@FindBy(xpath="//h5[text()=' Alert!']")private WebElement alert;
 
 				 		 	 
-		public void enterUsernameOnUserNameField(String usernamevaluepassing)
+		/*public void enterUsernameOnUserNameField(String usernamevaluepassing)
 		{
 			loginusername.sendKeys(usernamevaluepassing);
 		}
@@ -41,50 +41,56 @@ public class AdminUserPage {
 		public void clickOnLoginbutton()
 		{
 			loginbutton.click();
-		}
+		}*///no need?
 
 		
 		
-		public void clickonmoreinfo()
+	/*public void clickonmoreinfo()
          {
         	// moreinfo.click();
         	 JavascriptExecutor js=(JavascriptExecutor)driver;
         	 js.executeScript("arguments[0].click();",moreinfo);
         	 
-         }
-        public void clickonupdateicon()
+         }*/
+        public AdminUserPage clickonupdateicon()
         {
         	Waitutilities obj=new Waitutilities();
-    		obj.waitForElementToBeClickable(driver, updateicon);
+    	    obj.waitForElementToBeClickable(driver, updateicon);
     		
-	     //updateicon.click();
-	    JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();",updateicon);
+	       // updateicon.click();
+	        JavascriptExecutor js = (JavascriptExecutor)driver;
+		   js.executeScript("arguments[0].click();",updateicon);
+    		return this;//return this page
 	
         }
-	   public void enterupdatedusername(String updatedusernamepassing)
+	   public AdminUserPage enterupdatedusername(String updatedusernamepassing)
 	   {
 		   usernameupdate.clear();//to clear the field
 		   usernameupdate.sendKeys(updatedusernamepassing);
+		   return this;
 	    }
-	   public void updatepassword( String updatedpasswordpassing)
+	   public AdminUserPage updatepassword( String updatedpasswordpassing)
 	   {
-		   passwordupdate.clear();
-		   passwordupdate.sendKeys(updatedpasswordpassing);
+		  passwordupdate.clear();
+		  passwordupdate.sendKeys(updatedpasswordpassing);
+		  return this;
      	}
-	    public void selectupdatedusertype()
+	   /* public AdminUserPage selectupdatedusertype()
 	   {
-		  
-		 PageUtilities pageutility=new PageUtilities();
-		 pageutility.selectByIndex(usertypupdate, 1);
+	    	//Select select=new Select(usertypeupdate);
+			//select.selectByValue(passingusertypevalue);
+			 PageUtilities pageutility=new PageUtilities();
+		     pageutility.selectByIndex(usertypupdate, 1);
+	         return this;
 		
-  	    }
-	  	public void clickonupdateDetailsButton()
+  	    }*/
+	  	public AdminUserPage clickonupdateDetailsButton()
 	   {
-		updatebutton.click();
+		    updatebutton.click();
+	  		return this;
 	    }
 	   public boolean isalertdisplayed() {
 	   
-		return alert.isDisplayed();
+		    return alert.isDisplayed();
 	    }
            } 

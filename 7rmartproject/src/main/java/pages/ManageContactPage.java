@@ -16,7 +16,7 @@ public class ManageContactPage {
 	@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
 	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
 	
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-contact']") private WebElement moreinfo;
+	//@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-contact']") private WebElement moreinfo;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/contact/edit_contact?edit=1']") private WebElement actionicon;
 	@FindBy(xpath="//input[@id='phone']") private WebElement phnnumber ;
 	@FindBy(xpath="//input[@id='email']") private WebElement email ;
@@ -27,7 +27,7 @@ public class ManageContactPage {
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") private WebElement alert ;
 
 
-	public void enterUsernameOnUserNameField(String usernamevaluepassing)
+	/*public void enterUsernameOnUserNameField(String usernamevaluepassing)
 	{
 		loginusername.sendKeys(usernamevaluepassing);
 
@@ -42,58 +42,66 @@ public class ManageContactPage {
 		loginbutton.click();
 
 	}
-
+*/
 	
 
-	public void clickonmoreinfobutton()
+	/*public void clickonmoreinfobutton()
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",moreinfo);
 		//moreinfo.click();
-	}
-    public void clickonactionbutton()
+	}*/
+    public ManageContactPage clickonactionbutton()
     {
 	actionicon.click();
+    	return this;
      }
-   public void enterthevalueinPhoneNumberField(String phnnumpassing)
+   public ManageContactPage enterthevalueinPhoneNumberField(String phnnumpassing)
     {
 	phnnumber.clear();
 	phnnumber.sendKeys(phnnumpassing);
+	   return this;
     }
-   public void enterthevalueinemailField(String emailpassing)
+   public ManageContactPage enterthevalueinemailField(String emailpassing)
     {
 	email.clear();
     email.sendKeys(emailpassing);
+	   return this;
     }
-   public void enterTheAddress(String emailpassing)
+   public ManageContactPage enterTheAddress(String adresspassing)
    {
 	address.clear();
-	address.sendKeys(emailpassing);
+	address.sendKeys(adresspassing);
+	   return this;
    }
-   public void enterTheDeliverytime(String deltimepassing)
+   public ManageContactPage enterTheDeliverytime(String deleverytimepassing)
     {
 	deliverytime.clear();
-	deliverytime.sendKeys(deltimepassing);
+	deliverytime.sendKeys(deleverytimepassing);
+	   return this;
     }
-    public void enterTheDeliveryCharge(String  deliverychargepassing)
+    public ManageContactPage enterTheDeliveryCharge(String  deliverychargepassing)
     {
 	deliverycharge.clear();
 	deliverycharge.sendKeys(deliverychargepassing);
+    	return this;
      }
     public boolean isupdateButtonIsDisplayed()
     {
     	return updatebutton.isDisplayed();
     }
-    public void  clickOnUpdateButton()
+    public ManageContactPage  clickOnUpdateButton()
     {
 	//updatebutton.click();
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	js.executeScript("arguments[0].click();",updatebutton);
 	//return updatebutton.isDisplayed();
-		
+	return this;
+    		
       }
      public boolean alertDisplayed()
      {
 	return alert.isDisplayed();
      }
+	
      }

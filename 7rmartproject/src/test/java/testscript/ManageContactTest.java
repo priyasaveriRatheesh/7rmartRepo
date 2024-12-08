@@ -5,11 +5,15 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.Loginpage;
 import pages.ManageContactPage;
 import utilities.ExelUtilities;
 
 public class ManageContactTest extends Base{
+	HomePage homepage;
+	ManageContactPage managecontactpage;
+	
 
 	@Test
 	public void VerifyIfTheUserCanupdateTheContactDetails() throws IOException 
@@ -17,20 +21,24 @@ public class ManageContactTest extends Base{
 		
 		String loginusernamevalue=ExelUtilities.getStringData(1,0,"Loginpage");
 		String loginpasswordvalue=ExelUtilities.getStringData(1,1,"Loginpage");
-		/*Loginpage loginpage=new Loginpage(driver);
-		loginpage.enterUsernameOnUserNameField(loginusernamevalue);/////doubt?
-		loginpage.enterPasswordOnpasswordField(loginpasswordvalue);
-		loginpage.clickOnLoginbutton();*/
-		
+		Loginpage loginpage=new Loginpage(driver);
+		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
+		//loginpage.clickOnLoginbutton();
+		homepage=loginpage.clickOnLoginbutton();
+
 		String newnumber=ExelUtilities.getIntegerData(1,0,"ManageContactPage");
 	    String newemail=ExelUtilities.getStringData(1,1,"ManageContactPage");
 		String newaddress=ExelUtilities.getStringData(1,2,"ManageContactPage");
 		String newdeliverytime=ExelUtilities.getIntegerData(1,3,"ManageContactPage");
 		String newadelivercharge=ExelUtilities.getIntegerData(1,4,"ManageContactPage");
 		  	
+		managecontactpage=homepage.clickonmoreinfobuttoncontactpage();
+		managecontactpage.clickonactionbutton().enterthevalueinPhoneNumberField(newnumber).enterthevalueinemailField(newemail).enterTheAddress(newaddress).enterTheDeliverytime(newdeliverytime).enterTheDeliveryCharge(newadelivercharge).clickOnUpdateButton();
+		boolean alertdisplayed=managecontactpage.alertDisplayed();
+		Assert.assertTrue(alertdisplayed,"Alert not displayed");
 		
 		
-		ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
+	  /*ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
 		ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);//no need from this?
 		ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);//this?
 		ManageContactPageobj.clickOnLoginbutton();//
@@ -43,27 +51,30 @@ public class ManageContactTest extends Base{
 	   ManageContactPageobj.enterTheAddress(newaddress);
 	   ManageContactPageobj.enterTheDeliverytime(newdeliverytime);
 	   ManageContactPageobj.enterTheDeliveryCharge(newadelivercharge);
-	   ManageContactPageobj.clickOnUpdateButton();
-	  boolean alertdisplayed=ManageContactPageobj.alertDisplayed();
-	  Assert.assertTrue(alertdisplayed,"alert is not displayed");
-	  
-	   }
+	   ManageContactPageobj.clickOnUpdateButton();*/
+	 	   }
 	   
       @Test
 	   public void VerifyiftheUpdateButtonIsPresentInManageContCtPage() throws IOException
 	   {
 		String loginusernamevalue=ExelUtilities.getStringData(1, 0,"LoginPage"); 
 		String loginpasswordvalue=ExelUtilities.getStringData(1, 1,"LoginPage");
+		Loginpage loginpage=new Loginpage(driver);
+		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
+		//loginpage.clickOnLoginbutton();
+		homepage=loginpage.clickOnLoginbutton();
+
 		
+		/*		
 		ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
 		ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);
 		ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);
 		ManageContactPageobj.clickOnLoginbutton();
 		
-		ManageContactPageobj.clickonmoreinfobutton();
-	    ManageContactPageobj.clickonactionbutton();
-	     ManageContactPageobj.clickOnUpdateButton();
-		boolean updatebuttondisplayed=ManageContactPageobj.isupdateButtonIsDisplayed();
+		ManageContactPageobj.clickonmoreinfobutton();*/
+		managecontactpage=homepage.clickonmoreinfobuttoncontactpage();
+	    managecontactpage.clickonactionbutton();
+		boolean updatebuttondisplayed=managecontactpage.isupdateButtonIsDisplayed();
 		Assert.assertTrue(updatebuttondisplayed,"Update Button not displayed");
 	    }
          

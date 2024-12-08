@@ -1,11 +1,11 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Loginpage {
+public class Loginpage //page class also called element repo(have methods and elements)in src main
+{
 	WebDriver driver;
 	public Loginpage(WebDriver driver)//parametrised constructor
 	{
@@ -25,18 +25,21 @@ public class Loginpage {
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") private WebElement alert;
 	
 
-     public void enterUsernameOnUserNameField(String usernamevaluepassing)//avdunn pass cheyunnat store akunnat usernamevaluepassing
+     public Loginpage enterUsernameOnUserNameField(String usernamevaluepassing)//avdunn pass cheyunnat store akunnat usernamevaluepassing
      {
 	// webelement name is username
 	loginusername.sendKeys(usernamevaluepassing);
+    	 return this;
      }
-     public void enterPasswordOnpasswordField(String passwordvaluepassing)
+     public Loginpage enterPasswordOnpasswordField(String passwordvaluepassing)
      {
 	loginpassword.sendKeys(passwordvaluepassing);
+    	 return this;
      }
-    public void clickOnLoginbutton()
+    public HomePage clickOnLoginbutton()
      {
-	loginbutton.click();
+	  loginbutton.click();
+    	return new HomePage(driver);
      }
 	public boolean ishomepagedisplayed()
 	{

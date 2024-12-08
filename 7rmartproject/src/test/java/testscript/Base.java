@@ -23,7 +23,7 @@ public class Base {
 			public WebDriver driver;
 			public Properties properties;
 			public FileInputStream fileinputstream;
-		    @BeforeMethod(alwaysRun=true)//for grouping
+		    @BeforeMethod(alwaysRun=true)//for grouping to run
 		    @Parameters("browser")
 		    public void initializeBrowser(String browser) throws  Exception
 		    //public void initializeBrowser()//no need
@@ -60,14 +60,14 @@ public class Base {
 		    driver.get(properties.getProperty("url"));
 
 		     //implicit wait after url loads
-			 //if given 10 sec, element loads in 2 sec, but it will wait till 10, so dont use for bigger time period
+			 //if we give 10 sec, element loads in 2 sec, but it will wait till 10, so dont use for bigger time period
 			 //common wait
 				
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Waitutilities.implicitwait));
 		    driver.manage().window().maximize();
 
 		     }
-		    @AfterMethod(alwaysRun=true)
+		    @AfterMethod(alwaysRun=true)//grouping
 		  /* public void quitandclose()
 		    {
 			  //driver.close();

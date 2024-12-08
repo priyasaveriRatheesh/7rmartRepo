@@ -14,30 +14,30 @@ import utilities.Waitutilities;
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
+	/*@FindBy(xpath="//input[@name='username']") private WebElement loginusername;
 	@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
-	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
+	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;*/
 	
-	@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-product']") private WebElement moreinfobutton;
+	//@FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-product']") private WebElement moreinfobutton;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Product/add']") private WebElement newicon;
 	@FindBy(xpath="//input[@id='title']") private WebElement title;
-	@FindBy(xpath="//input[@value='Nonveg']") private WebElement producttyperadiobutton;
-	@FindBy(xpath="//input[@placeholder='Enter the Tag']") private WebElement tag;	
-	@FindBy(xpath="//select[@id='grp_id']") private WebElement group;
+//	@FindBy(xpath="//input[@value='Nonveg']") private WebElement producttyperadiobutton;
+	//@FindBy(xpath="//input[@placeholder='Enter the Tag']") private WebElement tag;	
+	//@FindBy(xpath="//select[@id='grp_id']") private WebElement group;
 	@FindBy(xpath="//input[@id='purpose1']") private WebElement pricetyperadiobutton;
 	@FindBy(xpath="//*[@id=\"p_minimum\"]") private WebElement piecetype;
-	@FindBy(xpath="//input[@name='p_max']") private WebElement max;
+	//@FindBy(xpath="//input[@name='p_max']") private WebElement max;
 	@FindBy(xpath="//input[@id='p_price']") private WebElement price ;
-	@FindBy(xpath="//input[@id='p_mrp']") private WebElement mrp;
+	//@FindBy(xpath="//input[@id='p_mrp']") private WebElement mrp;
 	@FindBy(xpath="//input[@id='p_stock']") private WebElement stock;
-	@FindBy(xpath="//input[@id='p_pp']") private WebElement purchase ;
-	@FindBy(xpath="//*[@id=\"form\"]/div/div[9]/div/div/div/div[3]/div[2]") private WebElement description ;
-	@FindBy(xpath="(//input[@name='stock'])[2]") private WebElement stockradioButton ;
+	//@FindBy(xpath="//input[@id='p_pp']") private WebElement purchase ;
+	//@FindBy(xpath="//*[@id=\"form\"]/div/div[9]/div/div/div/div[3]/div[2]") private WebElement description ;
+	//@FindBy(xpath="(//input[@name='stock'])[2]") private WebElement stockradioButton ;
 	@FindBy(xpath="//button[@type='submit']") private WebElement savebutton ;
 	@FindBy(xpath="//h5[text()=' Alert!']") private WebElement alertmessage;
 
 	
-	public void enterUsernameOnUsernameField(String usernamepassing) {
+/*	public void enterUsernameOnUsernameField(String usernamepassing) {
 		loginusername.sendKeys(usernamepassing);
 	}
 	public void enterPasswordOnPasswordField(String passwordpassing) {
@@ -46,92 +46,110 @@ import utilities.Waitutilities;
 	public void clickOnLoginButton() {
 		loginbutton.click();
 	}
-			
-	public void clickOnMoreinfoButton() {
+			*/
+	/*public void clickOnMoreinfoButton() {
 		moreinfobutton.click();//both are  working
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("arguments[0].click();",moreinfobutton);
-	}
-	public void clickOnNewIcon() 
+	}*/
+	public ManageProductPage clickOnNewIcon() 
 	{
 		newicon.click();
+		return this;
 	}
-	public void enterValueOnTitleField(String titlepassing) 
+	public ManageProductPage enterValueOnTitleField(String titlepassing) 
 	{
 		title.sendKeys(titlepassing);
+		return this;
 	}
-	public void SelectAprodutTypeRadioButton()
+	/*public ManageProductPage SelectAprodutTypeRadioButton()
 	{
 		producttyperadiobutton.click();
+		return this;
 	}
-	public void enterValueOnTagfield(String tagpassing)
+	public ManageProductPage enterValueOnTagfield(String tagpassing)
 	{
 		tag.sendKeys(tagpassing);
+		return this;
 	}
 	
-	public void SelectGroup(int grouppassing)
+	public ManageProductPage SelectGroup(String grouppassing)
 	{
 		PageUtilities Pageutilitiesobj =new PageUtilities();
-		Pageutilitiesobj.selectByIndex(group, grouppassing);
-	}
-	public void ClickOnPriceTypeRadioButton()
+		Pageutilitiesobj.selectByValue(group, grouppassing);
+		return this;
+	}*/
+	public ManageProductPage ClickOnPriceTypeRadioButton()
 	{
 		//pricetyperadiobutton.click();
 		PageUtilities pageutilities=new PageUtilities();
 		pageutilities.javaSriptClick(driver, pricetyperadiobutton);
+		return this;
 		
 	}
 	
-	public void minimumpiecedropdown(int piecepassing)
+	public ManageProductPage minimumpiecedropdown(int piecepassing)
 	{
 		PageUtilities Pageutilitiesobj =new PageUtilities();
-		Pageutilitiesobj.selectByIndex(piecetype, piecepassing);
+		Pageutilitiesobj.selectByIndex(piecetype, 1);
+		return this;
 		}
 	
-	public void EnterTheMaximumQuantityCanOrder(String maxQuantitytypassing)
+	/*public ManageProductPage EnterTheMaximumQuantityCanOrder(String maxQuantitytypassing)
 	{
 		max.sendKeys(maxQuantitytypassing);
-	}
+		return this;
+	}*/
 	
-	public void enterPrice(String pricepasssing) {
+	public ManageProductPage enterPrice(String pricepasssing) {
 		price.sendKeys(pricepasssing);
+		return this;
 	}
 	
-	public void enterTheMrpValue(String mrpPassing)
+	/*public ManageProductPage enterTheMrpValue(String mrpPassing)
 	{
 	mrp.sendKeys(mrpPassing);
-	}
-	public void enterStock(String stockpasssing)
+		return this;
+	}*/
+	public ManageProductPage enterStock(String stockpasssing)
 	{
 		stock.sendKeys(stockpasssing);
+		return this;
 	}
-	public void enterthePurchasePrice(String pppassing)
+	/*public ManageProductPage enterthePurchasePrice(String pppassing)
 	{
 		purchase.sendKeys(pppassing);
+		return this;
 	}
-	public void addDescription(String descrptonvalpassing)
+	public ManageProductPage addDescription(String descrptonvalpassing)
 	{
 		description.sendKeys(descrptonvalpassing);
+		return this;
 	}
-	public void clickOnStockRadioButton(String buttonpassing)
+	public ManageProductPage clickOnStockRadioButton(String buttonpassing)
 	{
-		//stockradioButton.click();
+		stockradioButton.click();
 		Waitutilities obj=new Waitutilities();
-		//obj.waitForElement(driver, stockradioButton);
 		obj.waitForElementToBeClickable(driver,stockradioButton );
-		PageUtilities pageutilities=new PageUtilities();
-		pageutilities.javaSriptClick(driver, stockradioButton);
+		//PageUtilities pageutilities=new PageUtilities();
+		//pageutilities.javaSriptClick(driver, stockradioButton);
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].click();",savebutton);
 		
-	}  
-		public void clickOnSavebutton() {
+		return this;
+		
+	}  */
+		public ManageProductPage clickOnSavebutton() 
+		{
 		Waitutilities waitutiliies=new Waitutilities();
 		waitutiliies.waitForElementToBeClickable(driver, savebutton);
 	   
-		
+		//savebutton.click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",savebutton);
+		return this;
 		
-		//savebutton.click();
+		
 	}
 	public boolean isAlertMessageDisplayed()
 	{

@@ -44,5 +44,5 @@ public class ExelUtilities//no need of extend?
 
 //poi and pooi xml is used in excel reading
 
-//apache poi is collection of external library ie.red and write from excel notpad word
-//dependecys meansexternal java librry (class and interface)
+//apache poi is collection of external library ie.read and write from excel notpad word
+//dependecys means external java librry (class and interface)

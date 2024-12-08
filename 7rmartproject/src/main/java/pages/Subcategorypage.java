@@ -18,7 +18,7 @@ public class Subcategorypage {
 	@FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
 	@FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
 	
-	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[4]/div/a") private WebElement moreinfo ;
+	//@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[4]/div/a") private WebElement moreinfo ;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Subcategory/add']") private WebElement newbutton;
 
 	@FindBy(xpath="//select[@id='cat_id']") private WebElement categoryselectdropdown;
@@ -28,7 +28,7 @@ public class Subcategorypage {
 	@FindBy(xpath="//button[@name='update']") private WebElement updatebutton ;
 	@FindBy(xpath="//h5[text()=' Alert!']") private WebElement alertmessage;
 	
-	public void enterUsernameOnUsernameField(String usernamepassing) {
+	/*public void enterUsernameOnUsernameField(String usernamepassing) {
 		loginusername.sendKeys(usernamepassing);
 	}
 	public void enterPasswordOnPasswordField(String passwordpassing) {
@@ -36,25 +36,29 @@ public class Subcategorypage {
 	}
 	public void clickOnSigninButton() {
 		loginbutton.click();
-	}
+	}*/
 	
 	
-	public void clickOnMoreinfobutton() {
+	/*public void clickOnMoreinfobutton() {
 		//moreinfo.click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",moreinfo);
-	}
-	public void clickOnNewbutton() {
+	}*/
+	public Subcategorypage clickOnNewbutton() {
 		newbutton.click();
+		return this;
 		
 	}
-	public void selectValueOnCateforyFieldDropdown() {
+	public Subcategorypage selectValueOnCateforyFieldDropdown() {
 		PageUtilities pageutility=new PageUtilities();
 		pageutility.selectByIndex(categoryselectdropdown, 1);
+		return this;
 		}
 	
-		public void EnteraSubcategory(String passingsubcategoryvalue) {
+		public Subcategorypage EnteraSubcategory(String passingsubcategoryvalue)
+		{
 		subcategoryfield.sendKeys(passingsubcategoryvalue);
+			return this;
 	}
 	/*public void imageUpload() throws AWTException {
 		Waitutilities obj=new Waitutilities();
@@ -65,14 +69,16 @@ public class Subcategorypage {
 		//objfileuploadutilities.fileuploadusingSenkeys(imageuploadbutton,Constants.TOMATOIMAGE);
 		objfileuploadutilities.fileuploadusingRobotclass(imageuploadbutton,Constants.TOMATOIMAGE );
 			}*/
-	public void clickOnSavebutton() {
+	public Subcategorypage clickOnSavebutton() {
 		savebutton.click();
+		return this;
 	}
-	public void clickonupdatecategorybutton()
+	public Subcategorypage clickonupdatecategorybutton()
 	{
 		//updatecategorybutton.click();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",updatebutton);
+		return this;
 	
 	}
 	
