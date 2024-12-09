@@ -42,7 +42,7 @@ public class LoginTest extends Base {// here claass extending to base class to l
 		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
-		Assert.assertTrue(alertvariable, "Alert not displayed");
+		Assert.assertTrue(alertvariable,Constants.ALERTMESSAGE);
 	}
 
 	@Test(groups = { "regression" })
@@ -56,7 +56,7 @@ public class LoginTest extends Base {// here claass extending to base class to l
 		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
-		Assert.assertTrue(alertvariable, "Alert not displayed");
+		Assert.assertTrue(alertvariable,Constants.ALERTMESSAGE );
 	}
 
 	@Test(dataProvider = "LoginProvider")
@@ -72,7 +72,7 @@ public class LoginTest extends Base {// here claass extending to base class to l
 		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
-		Assert.assertTrue(alertvariable, "Alert not displayed");
+		Assert.assertTrue(alertvariable,Constants.ALERTMESSAGE);
 	}
 
 	@DataProvider(name = "LoginProvider")

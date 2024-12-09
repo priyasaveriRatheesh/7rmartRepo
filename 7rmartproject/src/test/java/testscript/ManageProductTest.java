@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.Loginpage;
 import pages.ManageProductPage;
@@ -59,7 +60,7 @@ public class ManageProductTest extends Base {
 		 * ManageProductpageobj.clickOnSavebutton();
 		 */
 		boolean alertdisplayed = manageproductpage.isAlertMessageDisplayed();
-		Assert.assertTrue(alertdisplayed, "Alert not displayed");
+		Assert.assertTrue(alertdisplayed,Constants.ALERTMESSAGE);
 
 	}
 }

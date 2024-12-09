@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.HomePage;
 import pages.Loginpage;
 import pages.Managenewspage;
@@ -64,7 +65,7 @@ public class ManagenewsTest extends Base {
 		managenewspage = homepage.clickOnMoreInfoButtonNews();
 		managenewspage.clickOnNewButton().enterTheNews(news).clickOnSaveButton();
 		boolean alertdisplayed = managenewspage.isAlertDisplayed();
-		Assert.assertTrue(alertdisplayed, "Alert not displayed");
+		Assert.assertTrue(alertdisplayed,Constants.ALERTMESSAGE);
 
 	}
 
