@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtilities;
+import utilities.Waitutilities;
 
 public class HomePage {
 	WebDriver driver;
@@ -22,7 +23,7 @@ public class HomePage {
 	@FindBy(xpath = "//p[text()='Sign in to start your session']")
 	private WebElement signinpagedisplay;
 
-	@FindBy(xpath = "a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
+	@FindBy(css = "a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
 	private WebElement adminusermoreinfo;
 	@FindBy(css = "a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-contact']")
 	private WebElement contactmoreinfo;
@@ -37,9 +38,11 @@ public class HomePage {
 	private WebElement subcategorymoreinfo;
 
 	public AdminUserPage clickOnMoreInfoAdminuserPage() {
-		//PageUtilities pageutilities = new PageUtilities();
-		//pageutilities.javaSriptClick(driver, adminusermoreinfo);
-		 adminusermoreinfo.click();
+		Waitutilities waitutilities = new Waitutilities();
+		waitutilities.waitForElementToBeClickable(driver, adminusermoreinfo);
+		PageUtilities pageutilities = new PageUtilities();
+		pageutilities.javaSriptClick(driver, adminusermoreinfo);
+		// adminusermoreinfo.click();
 		return new AdminUserPage(driver);
 
 	}

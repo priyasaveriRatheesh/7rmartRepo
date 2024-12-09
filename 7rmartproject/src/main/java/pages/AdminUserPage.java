@@ -16,7 +16,7 @@ public class AdminUserPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=11005&page_ad=1']")
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/edit?edit=11028&page_ad=1']")
 	private WebElement updateicon;
 	@FindBy(xpath = "//input[@id='username']")
 	private WebElement usernameupdate;
@@ -48,6 +48,12 @@ public class AdminUserPage {
 	public AdminUserPage updatedPassword(String updatedpasswordpassing) {
 		passwordupdate.clear();
 		passwordupdate.sendKeys(updatedpasswordpassing);
+		return this;
+	}
+
+	public AdminUserPage selectValueOnUsertypeField() {
+		PageUtilities pageutilities = new PageUtilities();
+		pageutilities.selectByIndex(usertypupdate, 1);
 		return this;
 	}
 

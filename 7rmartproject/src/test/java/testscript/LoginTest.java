@@ -17,11 +17,11 @@ public class LoginTest extends Base {
 		String loginusernamevalue = ExelUtilities.getStringData(1, 0, "Loginpage");
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "Loginpage");
 		Loginpage objofloginpage = new Loginpage(driver);
-		objofloginpage.enterUsernameOnUserNameField(loginusernamevalue);
-		objofloginpage.enterPasswordOnpasswordField(loginpasswordvalue);
+		objofloginpage.enterUsernameOnUserNameField(loginusernamevalue)
+				.enterPasswordOnpasswordField(loginpasswordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean homepageloaded = objofloginpage.isAlertDisplayed();
-		Assert.assertTrue(homepageloaded, Constants.MESSAGE);
+		Assert.assertTrue(homepageloaded, Constants.ALERTMESSAGE);
 
 	}
 
@@ -30,8 +30,7 @@ public class LoginTest extends Base {
 		String usernamevalue = ExelUtilities.getStringData(2, 0, "Loginpage");
 		String passwordvalue = ExelUtilities.getStringData(2, 1, "Loginpage");
 		Loginpage objofloginpage = new Loginpage(driver);
-		objofloginpage.enterUsernameOnUserNameField(usernamevalue);
-		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
+		objofloginpage.enterUsernameOnUserNameField(usernamevalue).enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
 		Assert.assertTrue(alertvariable, Constants.ALERTMESSAGE);
@@ -42,8 +41,7 @@ public class LoginTest extends Base {
 		String usernamevalue = ExelUtilities.getStringData(3, 0, "Loginpage");
 		String passwordvalue = ExelUtilities.getStringData(3, 1, "Loginpage");
 		Loginpage objofloginpage = new Loginpage(driver);
-		objofloginpage.enterUsernameOnUserNameField(usernamevalue);
-		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
+		objofloginpage.enterUsernameOnUserNameField(usernamevalue).enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
 		Assert.assertTrue(alertvariable, Constants.ALERTMESSAGE);
@@ -54,8 +52,7 @@ public class LoginTest extends Base {
 	public void verifyTheUserIsAbleToLoginUsingInvalidCredentials(String usernamevalue, String passwordvalue)
 			throws IOException {
 		Loginpage objofloginpage = new Loginpage(driver);
-		objofloginpage.enterUsernameOnUserNameField(usernamevalue);
-		objofloginpage.enterPasswordOnpasswordField(passwordvalue);
+		objofloginpage.enterUsernameOnUserNameField(usernamevalue).enterPasswordOnpasswordField(passwordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean alertvariable = objofloginpage.isAlertDisplayed();
 		Assert.assertTrue(alertvariable, Constants.ALERTMESSAGE);

@@ -24,8 +24,8 @@ public class AdminUserTest extends Base {
 		String usernameupdate = ExelUtilities.getStringData(1, 0, "AdminUserPage");
 		String passwordupdate = ExelUtilities.getStringData(1, 1, "AdminUserPage");
 		adminuserpage = homepage.clickOnMoreInfoAdminuserPage();
-		adminuserpage.clickOnUpdateDetailsButton().enterUpdatedUsername(usernameupdate).updatedPassword(passwordupdate)
-				.clickOnUpdateDetailsButton();
+		adminuserpage.clickOnUpdateIcon().enterUpdatedUsername(usernameupdate).updatedPassword(passwordupdate)
+				.selectValueOnUsertypeField().clickOnUpdateDetailsButton();
 
 		boolean alertvariable = adminuserpage.isAlertDisplayed();
 		Assert.assertTrue(alertvariable, Constants.ALERTMESSAGE);
