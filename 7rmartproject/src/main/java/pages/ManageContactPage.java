@@ -1,10 +1,11 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utilities.PageUtilities;
 
 public class ManageContactPage {
 	WebDriver driver;
@@ -20,9 +21,6 @@ public class ManageContactPage {
 	private WebElement loginpassword;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement loginbutton;
-
-	// @FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-contact']")
-	// private WebElement moreinfo;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/contact/edit_contact?edit=1']")
 	private WebElement actionicon;
 	@FindBy(xpath = "//input[@id='phone']")
@@ -40,23 +38,6 @@ public class ManageContactPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alert;
 
-	/*
-	 * public void enterUsernameOnUserNameField(String usernamevaluepassing) {
-	 * loginusername.sendKeys(usernamevaluepassing);
-	 * 
-	 * } public void enterPasswordOnpasswordField(String passwordvaluepassing) {
-	 * loginpassword.sendKeys(passwordvaluepassing);
-	 * 
-	 * } public void clickOnLoginbutton() { loginbutton.click();
-	 * 
-	 * }
-	 */
-
-	/*
-	 * public void clickonmoreinfobutton() { JavascriptExecutor js =
-	 * (JavascriptExecutor) driver;
-	 * js.executeScript("arguments[0].click();",moreinfo); //moreinfo.click(); }
-	 */
 	public ManageContactPage clickOnActionButton() {
 		actionicon.click();
 		return this;
@@ -97,13 +78,8 @@ public class ManageContactPage {
 	}
 
 	public ManageContactPage clickOnUpdateButton() {
-		// updatebutton.click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", updatebutton);
-		/*PageUtilities pageutilities = new PageUtilities();
-		pageutilities.javaSriptClick(driver, updatebutton);*/
-		
-		// return updatebutton.isDisplayed();
+		PageUtilities pageutilities = new PageUtilities();
+		pageutilities.javaSriptClick(driver, updatebutton);
 		return this;
 
 	}

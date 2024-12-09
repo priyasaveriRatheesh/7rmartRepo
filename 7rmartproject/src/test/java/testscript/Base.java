@@ -27,10 +27,7 @@ public class Base {
 
 	@BeforeMethod(alwaysRun = true) // for grouping to run
 	@Parameters("browser")
-	public void initializeBrowser(String browser) throws Exception
-	// public void initializeBrowser()//no need
-	{
-		// driver=new ChromeDriver();//no need of this line
+	public void initializeBrowser(String browser) throws Exception {
 
 		try {
 			properties = new Properties();
@@ -40,7 +37,6 @@ public class Base {
 		} catch (Exception e) {
 			System.out.println("Error");
 		}
-		// driver=new ChromeDriver();//no need
 		if (browser.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("Edge")) {
@@ -50,7 +46,6 @@ public class Base {
 		} else {
 			throw new Exception("Browser is incorrect");
 		}
-		// driver.get("https://groceryapp.uniqassosiates.com/admin");// no need
 		driver.get(properties.getProperty("url"));
 
 		// implicit wait after url loads

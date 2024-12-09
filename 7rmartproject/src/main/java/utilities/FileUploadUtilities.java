@@ -16,8 +16,7 @@ public class FileUploadUtilities {
 		element.sendKeys(path);
 	}
 
-	public void fileuploadusingRobotclass(WebElement element, String path) throws AWTException// using for image upload
-	{
+	public void fileuploadusingRobotclass(WebElement element, String path) throws AWTException {
 		element.click();
 		StringSelection stringselection = new StringSelection(path);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);

@@ -14,16 +14,10 @@ public class HomeTest extends Base {
 		String loginusernamevalue = ExelUtilities.getStringData(1, 0, "Loginpage");
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "Loginpage");
 		Loginpage loginpage = new Loginpage(driver);
-		loginpage.enterUsernameOnUserNameField(loginusernamevalue);
-		loginpage.enterPasswordOnpasswordField(loginpasswordvalue);
+		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
 		loginpage.clickOnLoginbutton();
 
 		HomePage homeobj = new HomePage(driver);
-		/*
-		 * homeobj.enterUsernameOnUserNameField(loginusernamevalue);
-		 * homeobj.enterPasswordOnpasswordField(loginpasswordvalue);
-		 * homeobj.clickOnLoginbutton();
-		 */
 		homeobj.clickOnTheProfileIcon();
 		homeobj.ClickOnTheLogOutButton();
 		boolean Logindisplay = homeobj.isSigninButtonDisplayed();

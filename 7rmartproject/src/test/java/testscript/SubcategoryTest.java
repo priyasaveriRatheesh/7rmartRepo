@@ -22,25 +22,11 @@ public class SubcategoryTest extends Base {
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "LoginPage");
 		Loginpage loginpage = new Loginpage(driver);
 		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
-		// loginpage.clickOnLoginbutton();
 		homepage = loginpage.clickOnLoginbutton();
-
-		/*
-		 * Subcategorypage subcategorypageobj=new Subcategorypage(driver);
-		 * subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
-		 * subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
-		 * subcategorypageobj.clickOnSigninButton();
-		 */
 
 		String categoryvalue = ExelUtilities.getStringData(1, 0, "SubcategoryPage");
 		String subcategoryvalue = ExelUtilities.getStringData(1, 1, "SubcategoryPage");
 		subcategorypage = homepage.clickOnMoreInfoButtonSubcategory();
-		/*
-		 * subcategorypag.clickOnNewbutton();
-		 * subcategorypageobj.selectValueOnCateforyFieldDropdown();
-		 * subcategorypageobj.EnteraSubcategory(subcategoryvalue);
-		 * //subcategorypageobj.imageUpload(); subcategorypageobj.clickOnSavebutton();
-		 */
 		subcategorypage.clickOnNewbutton().selectValueOnCateforyFieldDropdown().EnterSubcategory(categoryvalue)
 				.clickOnSavebutton();
 		boolean alertdisplayed = subcategorypage.isAlertMessageDisplayed();
@@ -51,26 +37,16 @@ public class SubcategoryTest extends Base {
 	public void VerifyIfUserIsAbleToUpdateTheExistingSubcategory() throws IOException, AWTException {
 		String loginusernamevalue = ExelUtilities.getStringData(1, 0, "LoginPage");
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "LoginPage");
-		// Subcategorypage subcategorypageobj=new Subcategorypage(driver);
-		// subcategorypageobj.enterUsernameOnUsernameField(loginusernamevalue);
-		// subcategorypageobj.enterPasswordOnPasswordField(loginpasswordvalue);
 		Loginpage loginpage = new Loginpage(driver);
 		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
-		// loginpage.clickOnLoginbutton();
 		homepage = loginpage.clickOnLoginbutton();
 
 		String categoryvalue = ExelUtilities.getStringData(2, 0, "SubcategoryPage");
 		String subcategoryvalue = ExelUtilities.getStringData(2, 1, "SubcategoryPage");
 		subcategorypage = homepage.clickOnMoreInfoButtonSubcategory();
-		/*
-		 * subcategorypageobj.clickOnNewbutton();
-		 * subcategorypageobj.selectValueOnCateforyFieldDropdown();
-		 * subcategorypageobj.EnteraSubcategory(subcategoryvalue);
-		 * subcategorypageobj.clickOnSavebutton();
-		 */
 		subcategorypage.clickOnNewbutton().selectValueOnCateforyFieldDropdown().EnterSubcategory(subcategoryvalue)
 				.clickOnSavebutton();
 		boolean alertdisplayed = subcategorypage.isAlertMessageDisplayed();
-		Assert.assertTrue(alertdisplayed,Constants.ALERTMESSAGE);
+		Assert.assertTrue(alertdisplayed, Constants.ALERTMESSAGE);
 	}
 }

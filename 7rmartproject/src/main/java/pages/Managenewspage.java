@@ -19,9 +19,6 @@ public class Managenewspage {
 	private WebElement loginpassword;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement loginbutton;
-
-	// @FindBy(css="a.small-box-footer[href='https://groceryapp.uniqassosiates.com/admin/list-news']")
-	// private WebElement moreinfo;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/delete?del=2072&page_ad=1']")
 	private WebElement deleteicon;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/add']")
@@ -32,24 +29,9 @@ public class Managenewspage {
 	private WebElement savebutton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alert;
-	/*
-	 * public void enterUsernameOnUserNameField(String usernamevaluepassing) {
-	 * loginusername.sendKeys(usernamevaluepassing); } public void
-	 * enterPasswordOnpasswordField(String passwordvaluepassing) {
-	 * loginpassword.sendKeys(passwordvaluepassing); } public void
-	 * clickOnLoginbutton() { loginbutton.click(); }
-	 */
 
-	/*
-	 * public void clickonmoreinfobutton() { moreinfo.click(); //JavascriptExecutor
-	 * js = (JavascriptExecutor) driver;
-	 * //js.executeScript("arguments[0].click();",moreinfobutton);
-	 * 
-	 * }
-	 */
 	public Managenewspage clickOnDeleteButton() {
 		deleteicon.click();
-		// driver.switchTo().alert().dismiss();
 		driver.switchTo().alert().accept();
 		return this;
 	}

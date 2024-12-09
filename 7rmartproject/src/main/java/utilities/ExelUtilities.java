@@ -8,16 +8,14 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import constants.Constants;
 
-public class ExelUtilities// no need of extend?
-{
+public class ExelUtilities {
 	static FileInputStream f;
 	static XSSFWorkbook wb;
 	static XSSFSheet sh;
 
 	public static String getStringData(int i, int j, String sheet) throws IOException {
-		String filepath = Constants.TESTDATAFILE;// constants is a class static method calling classname.variable name
-		// constant is class name and testdatafile is variable name ie static method
-		f = new FileInputStream(filepath);// filepath is a variablename
+		String filepath = Constants.TESTDATAFILE;
+		f = new FileInputStream(filepath);
 		wb = new XSSFWorkbook(f);
 		sh = wb.getSheet(sheet);
 		Row r = sh.getRow(i);
@@ -36,8 +34,3 @@ public class ExelUtilities// no need of extend?
 		return String.valueOf(x);
 	}
 }
-
-//poi and pooi xml is used in excel reading
-
-//apache poi is collection of external library ie.read and write from excel notpad word
-//dependecys means external java librry (class and interface)

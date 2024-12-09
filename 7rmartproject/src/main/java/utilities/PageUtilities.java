@@ -21,8 +21,6 @@ public class PageUtilities {
 	public void selectByVisibleText(WebElement element, String visibleText) {
 		Select select = new Select(element);
 		select.selectByVisibleText(visibleText);
-		;
-		// we can add methods here, and just call using object
 
 	}
 

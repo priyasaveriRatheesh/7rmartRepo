@@ -22,7 +22,6 @@ public class ManageContactTest extends Base {
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "Loginpage");
 		Loginpage loginpage = new Loginpage(driver);
 		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
-		// loginpage.clickOnLoginbutton();
 		homepage = loginpage.clickOnLoginbutton();
 
 		String newnumber = ExelUtilities.getIntegerData(1, 0, "ManageContactPage");
@@ -38,23 +37,6 @@ public class ManageContactTest extends Base {
 		boolean alertdisplayed = managecontactpage.isAlertDisplayed();
 		Assert.assertTrue(alertdisplayed, "Alert not displayed");
 
-		/*
-		 * ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
-		 * ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);//no
-		 * need from this?
-		 * ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);//this?
-		 * ManageContactPageobj.clickOnLoginbutton();//
-		 * ManageContactPageobj.clickonmoreinfobutton();
-		 * ManageContactPageobj.clickonactionbutton();
-		 * 
-		 * 
-		 * ManageContactPageobj.enterthevalueinPhoneNumberField(newnumber);
-		 * ManageContactPageobj.enterthevalueinemailField(newemail);
-		 * ManageContactPageobj.enterTheAddress(newaddress);
-		 * ManageContactPageobj.enterTheDeliverytime(newdeliverytime);
-		 * ManageContactPageobj.enterTheDeliveryCharge(newadelivercharge);
-		 * ManageContactPageobj.clickOnUpdateButton();
-		 */
 	}
 
 	@Test
@@ -63,21 +45,12 @@ public class ManageContactTest extends Base {
 		String loginpasswordvalue = ExelUtilities.getStringData(1, 1, "LoginPage");
 		Loginpage loginpage = new Loginpage(driver);
 		loginpage.enterUsernameOnUserNameField(loginusernamevalue).enterPasswordOnpasswordField(loginpasswordvalue);
-		// loginpage.clickOnLoginbutton();
 		homepage = loginpage.clickOnLoginbutton();
 
-		/*
-		 * ManageContactPage ManageContactPageobj=new ManageContactPage(driver);
-		 * ManageContactPageobj.enterUsernameOnUserNameField(loginusernamevalue);
-		 * ManageContactPageobj.enterPasswordOnpasswordField(loginpasswordvalue);
-		 * ManageContactPageobj.clickOnLoginbutton();
-		 * 
-		 * ManageContactPageobj.clickonmoreinfobutton();
-		 */
 		managecontactpage = homepage.clickOnMoreInfoButtonContactPage();
 		managecontactpage.clickOnActionButton();
 		boolean updatebuttondisplayed = managecontactpage.isupdateButtonIsDisplayed();
-		Assert.assertTrue(updatebuttondisplayed,Constants.NOBUTTONFOUND);
+		Assert.assertTrue(updatebuttondisplayed, Constants.NOBUTTONFOUND);
 	}
 
 }

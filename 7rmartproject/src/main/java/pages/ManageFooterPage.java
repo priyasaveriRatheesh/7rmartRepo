@@ -12,16 +12,7 @@ public class ManageFooterPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	/*
-	 * @FindBy(xpath="//input[@name='username']") private WebElement loginusername;
-	 * 
-	 * @FindBy(xpath="//input[@name='password']") private WebElement loginpassword;
-	 * 
-	 * @FindBy(xpath="//button[@type='submit']") private WebElement loginbutton;
-	 */
 
-	// @FindBy(xpath="/html/body/div/div[1]/section/div/div/div[10]/div/a") private
-	// WebElement moreinfo;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=1']")
 	private WebElement actionicon;
 	@FindBy(xpath = "//textarea[@id='content']")
@@ -35,21 +26,6 @@ public class ManageFooterPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alert;
 
-	/*
-	 * public void enterUsernameOnUserNameField(String usernamevaluepassing) {
-	 * loginusername.sendKeys(usernamevaluepassing);
-	 * 
-	 * } public void enterPasswordOnpasswordField(String passwordvaluepassing) {
-	 * loginpassword.sendKeys(passwordvaluepassing);
-	 * 
-	 * } public void clickOnLoginbutton() { loginbutton.click();
-	 * 
-	 * }
-	 */
-
-	/*
-	 * public void clickonmoreinfobutton() { moreinfo.click(); }
-	 */
 	public ManageFooterPage clickOnActionButton() {
 		actionicon.click();
 		return this;
