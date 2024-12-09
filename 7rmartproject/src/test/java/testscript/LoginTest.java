@@ -21,7 +21,7 @@ public class LoginTest extends Base {
 				.enterPasswordOnpasswordField(loginpasswordvalue);
 		objofloginpage.clickOnLoginbutton();
 		boolean homepageloaded = objofloginpage.isHomePageDisplayed();
-		Assert.assertTrue(homepageloaded, Constants.ALERTMESSAGE);
+		Assert.assertTrue(homepageloaded, Constants.MESSAGE);
 
 	}
 

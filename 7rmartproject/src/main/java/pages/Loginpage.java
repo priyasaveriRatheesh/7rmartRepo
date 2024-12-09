@@ -11,7 +11,6 @@ public class Loginpage {
 	public Loginpage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);// class pagefactory and metod initelements and parameters
-		// page factory is using to inizilaze elements to driver
 	}
 
 	@FindBy(xpath = "//input[@name='username']")
