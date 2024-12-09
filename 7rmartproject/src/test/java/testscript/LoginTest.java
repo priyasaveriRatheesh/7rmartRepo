@@ -20,7 +20,7 @@ public class LoginTest extends Base {
 		objofloginpage.enterUsernameOnUserNameField(loginusernamevalue)
 				.enterPasswordOnpasswordField(loginpasswordvalue);
 		objofloginpage.clickOnLoginbutton();
-		boolean homepageloaded = objofloginpage.isAlertDisplayed();
+		boolean homepageloaded = objofloginpage.isHomePageDisplayed();
 		Assert.assertTrue(homepageloaded, Constants.ALERTMESSAGE);
 
 	}
@@ -61,6 +61,6 @@ public class LoginTest extends Base {
 	@DataProvider(name = "LoginProvider")
 	public Object[][] getDataFromTestData() throws IOException {
 		return new Object[][] {
-				{ ExelUtilities.getStringData(4, 0, "LoginPage"), ExelUtilities.getStringData(4, 1, "LoginPage") } };
+				{ ExelUtilities.getStringData(4, 0, "Loginpage"), ExelUtilities.getStringData(4, 1, "Loginpage") } };
 	}
 }

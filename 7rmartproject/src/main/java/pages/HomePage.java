@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtilities;
-import utilities.Waitutilities;
 
 public class HomePage {
 	WebDriver driver;
@@ -38,8 +37,6 @@ public class HomePage {
 	private WebElement subcategorymoreinfo;
 
 	public AdminUserPage clickOnMoreInfoAdminuserPage() {
-		Waitutilities waitutilities = new Waitutilities();
-		waitutilities.waitForElementToBeClickable(driver, adminusermoreinfo);
 		PageUtilities pageutilities = new PageUtilities();
 		pageutilities.javaSriptClick(driver, adminusermoreinfo);
 		// adminusermoreinfo.click();
